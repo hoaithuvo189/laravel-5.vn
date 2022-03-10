@@ -11,11 +11,12 @@ class TinTuc extends Model
 
     protected $table = "tintuc";
 
-    // 1 tin tức thuộc 1 loại tin
+    // Mối quan hệ: 1 tin tức thuộc 1 loại tin
     public function loaitin() {
         return $this->belongsTo(LoaiTin::class, "idLoaiTin", "id");
     }
 
+    // Mối quan hệ
     public function comment() {
         return $this->hasMany(Comment::class, "idTinTuc", "id");
     }

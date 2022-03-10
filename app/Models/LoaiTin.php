@@ -12,12 +12,12 @@ class LoaiTin extends Model
     protected $table = "loaitin";
 
     // get thể loại (loại tin thuộc thể loại nào)
-    public function theloai() {
+    public function theLoai() { // "theloai" lấy tên từ models TheLoai
         return $this->belongsTo(TheLoai::class, "idTheLoai", "id");
     }
 
     // get tin tức
-    public function tintuc() {
+    public function tintuc() { // "tintuc" lấy tên từ models TinTuc
         return $this->hasMany(TinTuc::class, "idLoaiTin", "id");
     }
 }
