@@ -46,7 +46,7 @@ class LoaiTinController extends Controller
 //        echo "</pre>";
         $this->validate($request,
             [
-                "Ten" => "required|min:3|max:100|unique:LoaiTin,Ten",
+                "Ten" => "required|min:3|max:100|unique:LoaiTin,Ten",// unique:table,column
                 "TheLoai" => "required" // name of <input> "TheLoai" => "required" // name of <select> ],
             ],
             [
@@ -59,7 +59,7 @@ class LoaiTinController extends Controller
         );
 
         $loaitin = new LoaiTin;
-        $loaitin->Ten = $request->Ten; // Ten, TenKhongDau, idTheLoai: field trong database
+        $loaitin->Ten = $request->Ten; // Ten, TenKhongDau, idTheLoai: field trong database, $request->Ten: "Ten" là name của <input>
         $loaitin->TenKhongDau = changeTitle($request->Ten);
         $loaitin->idTheLoai = $request->TheLoai; // "TheLoai" là tên <select>
         $loaitin->save();

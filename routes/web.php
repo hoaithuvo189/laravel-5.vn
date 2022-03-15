@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TheLoaiController;
 use App\Http\Controllers\LoaiTinController;
+use App\Http\Controllers\TinTucController;
+use App\Http\Controllers\AjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +44,22 @@ Route::group(["prefix" => "admin"], function() {
         Route::post("sua/{id}", [LoaiTinController::class, "postSua"]);
 
         Route::get("xoa/{id}", [LoaiTinController::class, "getXoa"]);
+    });
+
+    Route::group(["prefix" => "tintuc"], function() {
+        // admin/loaitin/danhsach
+        Route::get("danhsach", [TinTucController::class, "getDanhSach"]);
+        Route::get("them", [TinTucController::class, "getThem"]);
+        Route::post("them", [TinTucController::class, "postThem"]);
+
+        Route::get("sua/{id}", [TinTucController::class, "getSua"]);
+        Route::post("sua/{id}", [TinTucController::class, "postSua"]);
+
+        Route::get("xoa/{id}", [TinTucController::class, "getXoa"]);
+    });
+
+    Route::group(["prefix" => "ajax"], function() {
+        // ajax/loaitin/{idTheLoai}
+        Route::get("loaitin/{idTheLoai}", [AjaxController::class, "getLoaiTin"]);
     });
 });

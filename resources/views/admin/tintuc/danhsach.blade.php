@@ -4,39 +4,41 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Category
-                        <small>List</small>
+                    <h1 class="page-header">Tin Tức
+                        <small>Danh Sách</small>
                     </h1>
                 </div>
                 <!-- /.col-lg-12 -->
                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
-                    <tr align="center">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Category Parent</th>
-                        <th>Status</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">Tiêu đề</th>
+                        <th class="text-center">Tóm tắt</th>
+                        <th class="text-center">Thể loại</th>
+                        <th class="text-center">Loại tin</th>
+                        <th class="text-center">Xem</th>
+                        <th class="text-center">Nổi bật</th>
+                        <th class="text-center">Delete</th>
+                        <th class="text-center">Edit</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="odd gradeX" align="center">
-                        <td>1</td>
-                        <td>Tin Tức</td>
-                        <td>None</td>
-                        <td>Hiện</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                    </tr>
-                    <tr class="even gradeC" align="center">
-                        <td>2</td>
-                        <td>Bóng Đá</td>
-                        <td>Thể Thao</td>
-                        <td>Ẩn</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                    </tr>
+                        @foreach($tintuc as $tt)
+                            <tr class="odd gradeX">
+                                <td class="text-center">{{ $tt->id }}</td>
+                                <td class="text-center">{{ $tt->TieuDe }}
+                                    <img style="width:100px;" src="/upload/tintuc/{{ $tt->Hinh }}" alt="">
+                                </td>
+                                <td class="text-center">{{ $tt->TomTat }}</td>
+                                <td class="text-center">{{ $tt->loaitin->theloai->Ten }}</td>
+                                <td class="text-center">{{ $tt->loaitin->Ten }}</td>
+                                <td class="text-center">{{ $tt->SoLuotXem }}</td>
+                                <td class="text-center">{{ ($tt->NoiBat === 0) ? "Có" : "Không" }}</td>
+                                <td class="text-center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
+                                <td class="text-center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
