@@ -35,8 +35,8 @@
                                 <td class="text-center">{{ $tt->loaitin->Ten }}</td>
                                 <td class="text-center">{{ $tt->SoLuotXem }}</td>
                                 <td class="text-center">{{ ($tt->NoiBat === 0) ? "Có" : "Không" }}</td>
-                                <td class="text-center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                <td class="text-center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                                <td class="text-center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/tintuc/xoa/{{ $tt->id }}">Xóa</a></td>
+                                <td class="text-center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/tintuc/sua/{{ $tt->id }}">Sửa</a></td>
                             </tr>
                         @endforeach
                     </tbody>
