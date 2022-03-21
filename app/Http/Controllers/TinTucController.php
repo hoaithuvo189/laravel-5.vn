@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TinTuc;
 use App\Models\TheLoai;
 use App\Models\LoaiTin;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 

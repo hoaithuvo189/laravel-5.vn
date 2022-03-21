@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TheLoaiController;
 use App\Http\Controllers\LoaiTinController;
 use App\Http\Controllers\TinTucController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\SlideController;
 use App\Http\Controllers\AjaxController;
 
 /*
@@ -59,6 +61,23 @@ Route::group(["prefix" => "admin"], function() {
         Route::get("xoa/{id}", [TinTucController::class, "getXoa"]);
     });
 
+    Route::group(["prefix" => "comment"], function() {
+        // admin/comment/xoa/id
+        Route::get("xoa/{id}/{idTinTuc}", [CommentController::class, "getXoa"]);
+    });
+
+    Route::group(["prefix" => "slide"], function() {
+        // admin/loaitin/danhsach
+        Route::get("danhsach", [SlideController::class, "getDanhSach"]);
+
+        Route::get("them", [SlideController::class, "getThem"]);
+        Route::post("them", [SlideController::class, "postThem"]);
+
+        Route::get("sua/{id}", [SlideController::class, "getSua"]);
+        Route::post("sua/{id}", [SlideController::class, "postSua"]);
+
+        Route::get("xoa/{id}", [SlideController::class, "getXoa"]);
+    });
     Route::group(["prefix" => "ajax"], function() {
         // ajax/loaitin/{idTheLoai}
         Route::get("loaitin/{idTheLoai}", [AjaxController::class, "getLoaiTin"]);
