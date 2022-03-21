@@ -6,6 +6,7 @@ use App\Http\Controllers\LoaiTinController;
 use App\Http\Controllers\TinTucController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AjaxController;
 
 /*
@@ -78,6 +79,20 @@ Route::group(["prefix" => "admin"], function() {
 
         Route::get("xoa/{id}", [SlideController::class, "getXoa"]);
     });
+
+    Route::group(["prefix" => "user"], function() {
+        // admin/user/danhsach
+        Route::get("danhsach", [UserController::class, "getDanhSach"]);
+
+        Route::get("them", [UserController::class, "getThem"]);
+        Route::post("them", [UserController::class, "postThem"]);
+
+        Route::get("sua/{id}", [UserController::class, "getSua"]);
+        Route::post("sua/{id}", [UserController::class, "postSua"]);
+
+        Route::get("xoa/{id}", [UserController::class, "getXoa"]);
+    });
+
     Route::group(["prefix" => "ajax"], function() {
         // ajax/loaitin/{idTheLoai}
         Route::get("loaitin/{idTheLoai}", [AjaxController::class, "getLoaiTin"]);
