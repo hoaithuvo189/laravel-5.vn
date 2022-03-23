@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function getDanhSach() {
+        echo Auth::user();
         $user = User::all();
         return view("admin.user.danhsach", ["user" => $user]);
     }
@@ -88,5 +90,32 @@ class UserController extends Controller
         $user->delete();
 
         return redirect("admin/user/danhsach")->with("thongbao", "Bạn đã xóa thành công");
+    }
+
+    public function getdangnhapAdmin() {
+        return view("admin.login");
+    }
+
+    public function postdangnhapAdmin(Request $request) {
+        $this->validate($request, [
+            "email" => "required",
+            "password" => "required|min:3|max:32",
+        ], [
+            "email.required" => "Bạn chưa nhập Email",
+            "password.required" => "Bạn chưa nhập Password",
+            "password.min" => "Password không được lớn hơn 32 ký tự"
+        ]);
+
+        // Kiểm tra email và password đã đúng chưa
+        if (Auth::attempt(["email"=>$request->email, "password"=>$request->password])) {
+            return redirect("admin/theloai/danhsach");
+        }
+
+        return redirect("admin/dangnhap")->with("thongbao", "Đăng nhập không thành cồng");
+    }
+
+    public function getdangxuatAdmin() {
+        Auth::logout();
+        return redirect("admin/dangnhap");
     }
 }

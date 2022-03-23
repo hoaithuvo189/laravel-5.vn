@@ -24,7 +24,11 @@ Route::get('/', function () {
     return view("welcome");
 });
 
-Route::group(["prefix" => "admin"], function() {
+Route::get("admin/dangnhap", [UserController::class, "getdangnhapAdmin"]);
+Route::post("admin/dangnhap", [UserController::class, "postdangnhapAdmin"]);
+Route::get("admin/dangxuat", [UserController::class, "getdangxuatAdmin"]);
+
+Route::group(["prefix" => "admin", "middleware" => "adminLogin"], function() {
     Route::group(["prefix" => "theloai"], function() {
         // admin/theloai/danhsach
         Route::get("danhsach", [TheLoaiController::class, "getDanhSach"]);
