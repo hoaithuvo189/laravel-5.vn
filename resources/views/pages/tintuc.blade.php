@@ -13,9 +13,9 @@
             <h1>{{ $tintuc->TieuDe }}</h1>
 
             <!-- Author -->
-            <p class="lead">
-                by <a href="#"></a>
-            </p>
+{{--            <p class="lead">--}}
+{{--                by <a href="#"></a>--}}
+{{--            </p>--}}
 
             <!-- Preview Image -->
             <img class="img-responsive" src="/upload/tintuc/{{ $tintuc->Hinh }}" alt="">
@@ -102,12 +102,12 @@
                     @foreach($tinnoibat as $tnb)
                         <div class="row" style="margin-top: 10px;">
                             <div class="col-md-5">
-                                <a href="/tintuc/{{ $tnb->id }}/{{ $tnb->TieuDeKhongDau }}">
+                                <a href="/tintuc/{{ $tnb->id }}/{{ $tnb->TieuDeKhongDau }}.html">
                                     <img class="img-responsive" src="/upload/tintuc/{{ $tnb->Hinh }}" alt="{{ $tnb->TieuDe }}">
                                 </a>
                             </div>
                             <div class="col-md-7">
-                                <a href="#"><b>{{ $tnb->TieuDe }}</b></a>
+                                <a href="/tintuc/{{ $tnb->id }}/{{ $tnb->TieuDeKhongDau }}.html"><b>{{ $tnb->TieuDe }}</b></a>
                             </div>
                             <p style="padding:0 10px;">{{ $tnb->TomTat }}</p>
                             <div class="break"></div>

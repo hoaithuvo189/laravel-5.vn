@@ -49,7 +49,7 @@
 
                                 <div class="col-md-4">
                                     @foreach($data->all() as $dt)
-                                        <a href="/tintuc/">
+                                        <a href="/tintuc/{{ $tin1["id"] }}/{{ $tin1["TieuDeKhongDau"] }}.html">
                                             <h4>
                                                 <span class="glyphicon glyphicon-list-alt"></span>
                                                 {{ $dt["TieuDe"] }}
