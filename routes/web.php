@@ -7,6 +7,7 @@ use App\Http\Controllers\TinTucController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AjaxController;
 
 /*
@@ -102,3 +103,20 @@ Route::group(["prefix" => "admin", "middleware" => "adminLogin"], function() {
         Route::get("loaitin/{idTheLoai}", [AjaxController::class, "getLoaiTin"]);
     });
 });
+
+Route::get("/trangchu", [PagesController::class, "trangchu"])->name("trangchu");
+Route::get("lienhe", [PagesController::class, "lienhe"]);
+Route::get("loaitin/{id}/{TenKhongDau}.html", [PagesController::class, "loaitin"]);
+Route::get("tintuc/{id}/{TieuDeKhongDau}.html", [PagesController::class, "tintuc"]);
+
+Route::get("dangnhap", [PagesController::class, "getDangnhap"]);
+Route::post("dangnhap", [PagesController::class, "postDangnhap"]);
+Route::get("dangky", [PagesController::class, "getDangky"]);
+Route::post("dangky", [PagesController::class, "postDangky"]);
+Route::get("dangxuat", [PagesController::class, "getDangxuat"]);
+Route::get("nguoidung", [PagesController::class, "getNguoidung"]);
+Route::post("nguoidung", [PagesController::class, "postNguoidung"]);
+
+Route::post("comment/{id}", [CommentController::class, "postComment"]);
+
+Route::post("timkiem", [PagesController::class, "timkiem"]);

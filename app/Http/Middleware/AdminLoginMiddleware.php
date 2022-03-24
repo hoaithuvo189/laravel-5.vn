@@ -18,7 +18,7 @@ class AdminLoginMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->quyen === 1) { // Khi người dùng có quyen = 1 thì mới có quyền vào admin dashboard, phubui2703@gmail.com mk:123456
+            if (Auth::user()->quyen === 1) { // Khi người dùng có quyen = 1 thì mới có quyền vào admin dashboard, phubui2703@gmail.com mật khẩu:123456
                 return $next($request);
             }
 

@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function getDanhSach() {
-        echo Auth::user();
         $user = User::all();
         return view("admin.user.danhsach", ["user" => $user]);
     }
@@ -65,7 +64,7 @@ class UserController extends Controller
         $user->name = $request->Name;
         $user->quyen = $request->Quyen;
 
-        if ($request->changePassword === "on") {
+        if ($request->changePassword === "on") { // Nếu check vào Đổi mật khẩu
             $this->validate($request, [
                 "Password" => "required|min:3|max:32",
                 "PasswordAgain" => "required|same:Password" // input PasswordAgain match với input Password
@@ -106,7 +105,7 @@ class UserController extends Controller
             "password.min" => "Password không được lớn hơn 32 ký tự"
         ]);
 
-        // Kiểm tra email và password đã đúng chưa
+        // Kiểm tra email và password đã giống trong bảng database hay không
         if (Auth::attempt(["email"=>$request->email, "password"=>$request->password])) {
             return redirect("admin/theloai/danhsach");
         }
