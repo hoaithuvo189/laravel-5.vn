@@ -21,10 +21,6 @@ use App\Http\Controllers\AjaxController;
 |
 */
 
-Route::get('/', function () {
-    return view("welcome");
-});
-
 Route::get("admin/dangnhap", [UserController::class, "getdangnhapAdmin"]);
 Route::post("admin/dangnhap", [UserController::class, "postdangnhapAdmin"]);
 Route::get("admin/dangxuat", [UserController::class, "getdangxuatAdmin"]);
