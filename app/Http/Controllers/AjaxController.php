@@ -8,7 +8,8 @@ use App\Models\LoaiTin;
 
 class AjaxController extends Controller
 {
-    function getLoaiTin($idTheLoai) {
+    function getLoaiTin($idTheLoai)
+    {
         $loaitin = LoaiTin::where("idTheLoai", $idTheLoai)->get();
 
         $html = "";

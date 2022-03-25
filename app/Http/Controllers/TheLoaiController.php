@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\TheLoai;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -53,7 +54,8 @@ class TheLoaiController extends Controller
 
         $theloai = new TheLoai;
         $theloai->Ten = $request->Ten;
-        $theloai->TenKhongDau = changeTitle($request->Ten);
+//        $theloai->TenKhongDau = changeTitle($request->Ten);
+        $theloai->TenKhongDau = Str::slug($request->Ten);
         $theloai->save();
 
         return redirect("admin/theloai/them")->with("thongbao", "Thêm thành công"); // Add session key = "thongbao"
@@ -78,7 +80,8 @@ class TheLoaiController extends Controller
 
         $theloai = TheLoai::find($id);
         $theloai->Ten = $request->Ten;
-        $theloai->TenKhongDau = changeTitle($request->Ten);
+//        $theloai->TenKhongDau = changeTitle($request->Ten);
+        $theloai->TenKhongDau = Str::slug($request->Ten);
         $theloai->save();
 
         return redirect("admin/theloai/sua/" . $id)->with("thongbao", "Sửa thành công");

@@ -66,7 +66,8 @@ class PagesController extends Controller
 
         // Kiểm tra email và password đã giống trong bảng database hay không
         if (Auth::attempt(["email"=>$request->email, "password"=>$request->password])) {
-            return redirect("trangchu");
+//            return redirect("trangchu");
+            return redirect()->route("trangchu");
         }
 
         return redirect("dangnhap")->with("thongbao", "Đăng nhập không thành cồng");
@@ -74,7 +75,8 @@ class PagesController extends Controller
 
     public function getDangXuat() {
         Auth::logout();
-        return redirect("trangchu");
+//        return redirect("trangchu");
+        return redirect()->route("trangchu");
     }
 
     public function getNguoiDung() {

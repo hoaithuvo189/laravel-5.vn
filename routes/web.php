@@ -100,7 +100,7 @@ Route::group(["prefix" => "admin", "middleware" => "adminLogin"], function() {
     });
 });
 
-Route::get("/trangchu", [PagesController::class, "trangchu"])->name("trangchu");
+Route::get("/", [PagesController::class, "trangchu"])->name("trangchu");
 Route::get("lienhe", [PagesController::class, "lienhe"]);
 Route::get("loaitin/{id}/{TenKhongDau}.html", [PagesController::class, "loaitin"]);
 Route::get("tintuc/{id}/{TieuDeKhongDau}.html", [PagesController::class, "tintuc"]);

@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\LoaiTin;
 use App\Models\TheLoai;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -60,7 +61,8 @@ class LoaiTinController extends Controller
 
         $loaitin = new LoaiTin;
         $loaitin->Ten = $request->Ten; // Ten, TenKhongDau, idTheLoai: field trong database, $request->Ten: "Ten" là name của <input>
-        $loaitin->TenKhongDau = changeTitle($request->Ten);
+//        $loaitin->TenKhongDau = changeTitle($request->Ten);
+        $loaitin->TenKhongDau = Str::slug($request->Ten);
         $loaitin->idTheLoai = $request->TheLoai; // "TheLoai" là tên <select>
         $loaitin->save();
 
@@ -101,7 +103,8 @@ class LoaiTinController extends Controller
 
         $loaitin = LoaiTin::find($id);
         $loaitin->Ten = $request->Ten;
-        $loaitin->TenKhongDau = changeTitle($request->Ten);
+//        $loaitin->TenKhongDau = changeTitle($request->Ten);
+        $loaitin->TenKhongDau = Str::slug($request->Ten);
         $loaitin->idTheLoai = $request->TheLoai;
         $loaitin->save();
 
