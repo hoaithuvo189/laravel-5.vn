@@ -57,11 +57,11 @@
                         </div>
                         <div class="form-group">
                             <label>Tóm Tắt</label>
-                            <textarea id="ckeditor-tom-tat" name="TomTat" class="form-control ckeditor" rows="3">{{ $tintuc->TomTat }}</textarea>
+                            <textarea id="ckeditorTomTat" name="TomTat" class="form-control ckeditor" rows="3">{!! $tintuc->TomTat  !!}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Nội dung</label>
-                            <textarea id="ckeditor-noi-dung" name="NoiDung" class="form-control ckeditor" rows="3">{{ $tintuc->NoiDung }}</textarea>
+                            <textarea id="ckeditorNoiDung" name="NoiDung" class="form-control ckeditor" rows="3">{{ $tintuc->NoiDung }}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Hình ảnh</label>
@@ -72,14 +72,14 @@
                             <label>Nổi bật</label>
                             <label class="radio-inline">
                                 <input name="NoiBat" value="0"
-                                       @if($tintuc->NoiBat == 0)
+                                       @if($tintuc->NoiBat === 0)
                                            {{ "checked" }}
                                        @endif
                                        type="radio">Không
                             </label>
                             <label class="radio-inline">
                                 <input name="NoiBat" value="1"
-                                       @if($tintuc->NoiBat == 1)
+                                       @if($tintuc->NoiBat === 1)
                                            {{ "checked" }}
                                        @endif
                                        type="radio">Có
@@ -138,6 +138,15 @@
                     $("#loaitin").html(data);
                 });
             });
+        });
+
+        $("button[type='reset']").on("click", function() {
+            console.log(123);
+            $("input[name=TieuDe]").attr("value", "");
+            CKEDITOR.instances.ckeditorTomTat.setData( '' );
+            CKEDITOR.instances.ckeditorNoiDung.setData( '' );
+
+            $("input[name=Hinh]").val("");
         });
     </script>
 @endsection

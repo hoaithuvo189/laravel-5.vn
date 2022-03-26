@@ -46,7 +46,7 @@ class TinTucController extends Controller
         $tintuc = new TinTuc;
         $tintuc->TieuDe = $request->TieuDe; // Lưu input TieuDe vào column TieuDe trong bảng
 //        $tintuc->TieuDeKhongDau = changeTitle($request->TieuDe);
-        $tintuc->TenKhongDau = Str::slug($request->TieuDe);
+        $tintuc->TieuDeKhongDau = Str::slug($request->TieuDe);
         $tintuc->idLoaiTin = $request->LoaiTin;
         $tintuc->TomTat = $request->TomTat;
         $tintuc->NoiDung = $request->NoiDung;

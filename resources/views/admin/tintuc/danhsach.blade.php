@@ -14,28 +14,29 @@
                         {{ session("thongbao") }}
                     </div>
                 @endif
-                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                    <thead>
-                    <tr>
-                        <th class="text-center">ID</th>
-                        <th class="text-center">Tiêu đề</th>
-                        <th class="text-center">Tóm tắt</th>
-                        <th class="text-center">Thể loại</th>
-                        <th class="text-center">Loại tin</th>
-                        <th class="text-center">Xem</th>
-                        <th class="text-center">Nổi bật</th>
-                        <th class="text-center">Delete</th>
-                        <th class="text-center">Edit</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="col-lg-12" style="overflow: auto;">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="overflow:auto">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="min-width:50px;">ID</th>
+                            <th class="text-center" style="min-width:100px;">Tiêu đề</th>
+                            <th class="text-center" style="min-width:50px;">Tóm tắt</th>
+                            <th class="text-center" style="min-width:65px;">Thể loại</th>
+                            <th class="text-center" style="min-width:65px;">Loại tin</th>
+                            <th class="text-center" style="min-width:50px;">Xem</th>
+                            <th class="text-center" style="min-width:60px;">Nổi bật</th>
+                            <th class="text-center" style="min-width:60px;">Delete</th>
+                            <th class="text-center" style="min-width:50px;">Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         @foreach($tintuc as $tt)
                             <tr class="odd gradeX">
                                 <td class="text-center">{{ $tt->id }}</td>
                                 <td class="text-center">{{ $tt->TieuDe }}
                                     <img style="width:100px;" src="/upload/tintuc/{{ $tt->Hinh }}" alt="">
                                 </td>
-                                <td class="text-center">{{ $tt->TomTat }}</td>
+                                <td class="text-center">{!! $tt->TomTat !!}</td>
                                 <td class="text-center">{{ $tt->loaitin->theloai->Ten }}</td>
                                 <td class="text-center">{{ $tt->loaitin->Ten }}</td>
                                 <td class="text-center">{{ $tt->SoLuotXem }}</td>
@@ -44,8 +45,9 @@
                                 <td class="text-center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/tintuc/sua/{{ $tt->id }}">Sửa</a></td>
                             </tr>
                         @endforeach
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- /.row -->
         </div>

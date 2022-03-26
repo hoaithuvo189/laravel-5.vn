@@ -1,4 +1,5 @@
 @extends("layout.index")
+@section('title', 'Liên hệ')
 
 @section("content")
 <div class="container">

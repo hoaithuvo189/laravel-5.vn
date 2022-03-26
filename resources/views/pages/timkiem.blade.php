@@ -1,4 +1,5 @@
 @extends("layout.index")
+@section('title', "Tìm kiếm: $tukhoa")
 
 @section("content")
     <div class="container">

@@ -17,7 +17,7 @@
                             @endforeach
                         </div>
                     @endif
-                    
+
                     @if(session("thongbao"))
                         <div class="alert alert-success">
                             {{ session("thongbao") }}
@@ -47,11 +47,11 @@
                         </div>
                         <div class="form-group">
                             <label>Tóm Tắt</label>
-                            <textarea id="ckeditor-tom-tat" name="TomTat" class="form-control ckeditor" rows="3"></textarea>
+                            <textarea id="ckeditorTomTat" name="TomTat" class="form-control ckeditor" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Nội dung</label>
-                            <textarea id="ckeditor-noi-dung" name="NoiDung" class="form-control ckeditor" rows="3"></textarea>
+                            <textarea id="ckeditorNoiDung" name="NoiDung" class="form-control ckeditor" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Hình ảnh</label>

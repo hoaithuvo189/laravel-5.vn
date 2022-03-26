@@ -1,4 +1,6 @@
 @extends("layout.index")
+@section('title', 'Trang chủ')
+
 @section("content")
 <div class="container">
     <!-- slider -->

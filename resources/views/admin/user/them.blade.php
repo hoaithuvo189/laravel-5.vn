@@ -60,3 +60,12 @@
         <!-- /.container-fluid -->
     </div>
 @endsection
+
+@section("script")
+    <script>
+        $("button[type='reset']").on("click", function() {
+            $("input[name=Ten], input[name=NoiDung], input[name=link]").attr("value", "");
+            $("input[type=file]").val("");
+        });
+    </script>
+@endsection

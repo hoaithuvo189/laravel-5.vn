@@ -1,4 +1,5 @@
 @extends("layout.index")
+@section('title', $tintuc->TieuDe)
 
 @section("content")
 <div class="container">

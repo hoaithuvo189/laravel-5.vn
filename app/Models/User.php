@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     // Mối quan hệ
     public function comment() {
-        return $this->hasMany("App\User", "idUser", "id");
+        return $this->hasMany(User::class, "idUser", "id");
     }
 }

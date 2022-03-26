@@ -22,35 +22,37 @@
                         {{ session("thongbao") }}
                     </div>
                 @endif
-                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                    <thead>
-                    <tr align="center">
-                        <th>ID</th>
-                        <th>Tên</th>
-                        <th>Nội dung</th>
-                        <th>Hình</th>
-                        <th>link</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($slide as $sl)
-                        <tr class="odd gradeX" align="center">
-                            <td>{{ $sl->id }}</td>
-                            <td>{{ $sl->Ten }}</td>
-                            <td>{{ $sl->NoiDung }}</td>
-                            <td>
-                                <img width="500px" src="/upload/slide/{{ $sl->Hinh }}" alt="">
-                            </td>
-                            <td>{{ $sl->link }}</td>
-
-                            <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="/admin/slide/xoa/{{ $sl->id }}">Delete</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/slide/sua/{{ $sl->id }}">Edit</a></td>
+                <div class="col-lg-12" style="overflow: auto">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="overflow: auto">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="min-width:50px;">ID</th>
+                            <th class="text-center" style="min-width:50px;">Tên</th>
+                            <th class="text-center" style="min-width:100px;">Nội dung</th>
+                            <th class="text-center" style="min-width:140px;">Hình</th>
+                            <th class="text-center" style="min-width:50px;">link</th>
+                            <th class="text-center" style="min-width:50px;">Delete</th>
+                            <th class="text-center" style="min-width:50px;">Edit</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        @foreach($slide as $sl)
+                            <tr class="odd gradeX" align="center">
+                                <td>{{ $sl->id }}</td>
+                                <td>{{ $sl->Ten }}</td>
+                                <td>{{ $sl->NoiDung }}</td>
+                                <td>
+                                    <img style="max-width: 200px;" src="/upload/slide/{{ $sl->Hinh }}" alt="">
+                                </td>
+                                <td>{{ $sl->link }}</td>
+
+                                <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="/admin/slide/xoa/{{ $sl->id }}">Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/slide/sua/{{ $sl->id }}">Edit</a></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- /.row -->
         </div>

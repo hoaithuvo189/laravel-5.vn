@@ -82,5 +82,10 @@
                 }
             });
         });
+
+        $("button[type='reset']").on("click", function() {
+            console.log(123);
+            $("input[name=Ten]").attr("value", "");
+        });
     </script>
 @endsection

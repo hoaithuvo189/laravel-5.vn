@@ -1,4 +1,5 @@
 @extends("layout.index")
+@section('title', $loaitin->Ten)
 
 @section("content")
     <div class="container">

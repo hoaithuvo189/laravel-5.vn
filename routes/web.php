@@ -97,6 +97,8 @@ Route::group(["prefix" => "admin", "middleware" => "adminLogin"], function() {
     Route::group(["prefix" => "ajax"], function() {
         // ajax/loaitin/{idTheLoai}
         Route::get("loaitin/{idTheLoai}", [AjaxController::class, "getLoaiTin"]);
+        // ajax/
+        Route::get("change-quyen", [AjaxController::class, "changeQuyen"])->name("change-quyen");
     });
 });
 
