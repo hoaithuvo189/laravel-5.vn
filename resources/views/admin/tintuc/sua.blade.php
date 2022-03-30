@@ -23,7 +23,7 @@
                             {{ session("thongbao") }}
                         </div>
                     @endif
-                    <form action="/admin/tintuc/sua/{{ $tintuc->id }}" method="POST" enctype="multipart/form-data">
+                    <form name="myForm" action="/admin/tintuc/sua/{{ $tintuc->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Thể loại</label>
@@ -140,13 +140,46 @@
             });
         });
 
-        $("button[type='reset']").on("click", function() {
-            console.log(123);
-            $("input[name=TieuDe]").attr("value", "");
-            CKEDITOR.instances.ckeditorTomTat.setData( '' );
-            CKEDITOR.instances.ckeditorNoiDung.setData( '' );
+/*
+        let valTomTat = {!! json_encode($tintuc->TomTat, JSON_THROW_ON_ERROR) !!};
+        let valNoiDung = {!! json_encode($tintuc->NoiDung, JSON_THROW_ON_ERROR) !!};
+*/
 
-            $("input[name=Hinh]").val("");
-        });
+        // console.log(valNoiDung);
+
+        // $("button[type='reset']").on("click", function() {
+            // console.log(123);
+            // $("input[name=TieuDe]").attr("value", "");
+{{--            CKEDITOR.instances.ckeditorTomTat.setData( '{!! $tintuc->TomTat  !!}' );--}}
+
+            // CKEDITOR.instances.ckeditorTomTat.setData(valTomTat);
+{{--            CKEDITOR.instances.ckeditorNoiDung.setData( '{!! $tintuc->NoiDung  !!}' );--}}
+//             CKEDITOR.instances.ckeditorNoiDung.setData(valNoiDung);
+
+            // $("input[name=Hinh]").val("");
+        // });
+
+
+        // Reset Form
+        // $("button[type='reset']").on("click", function() {
+        //     $("input[name=Ten], input[name=NoiDung], input[name=link]").attr("value", "");
+        //     $("input[type=file]").val("");
+        // });
+
+        let form = document.myForm;
+        form.onreset = function() {
+            let val = confirm("Ban co muon reset hay khong");
+
+            if (val === true) {
+                let valTomTat = {!! json_encode($tintuc->TomTat, JSON_THROW_ON_ERROR) !!};
+                let valNoiDung = {!! json_encode($tintuc->NoiDung, JSON_THROW_ON_ERROR) !!};
+
+                CKEDITOR.instances.ckeditorTomTat.setData(valTomTat);
+                CKEDITOR.instances.ckeditorNoiDung.setData(valNoiDung);
+            }
+
+            return val;
+        }
     </script>
+
 @endsection

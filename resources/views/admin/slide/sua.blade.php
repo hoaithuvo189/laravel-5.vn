@@ -23,7 +23,7 @@
                             {{ session("thongbao") }}
                         </div>
                     @endif
-                    <form action="/admin/slide/them" method="POST" enctype="multipart/form-data">
+                    <form name="myForm" action="/admin/slide/them" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Tên</label>
@@ -57,9 +57,14 @@
 
 @section("script")
     <script>
-        $("button[type='reset']").on("click", function() {
-            $("input[name=Ten], input[name=NoiDung], input[name=link]").attr("value", "");
-            $("input[type=file]").val("");
-        });
+        // $("button[type='reset']").on("click", function() {
+        //     $("input[name=Ten], input[name=NoiDung], input[name=link]").attr("value", "");
+        //     $("input[type=file]").val("");
+        // });
+
+        let form = document.myForm;
+        form.onreset = function() {
+            return confirm("Ban co muon reset hay khong");
+        }
     </script>
 @endsection

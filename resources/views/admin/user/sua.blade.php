@@ -23,7 +23,7 @@
                             {{ session("thongbao") }}
                         </div>
                     @endif
-                    <form action="/admin/user/sua/{{ $user->id }}" method="POST">
+                    <form name="myForm" action="/admin/user/sua/{{ $user->id }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Tên</label>
@@ -62,7 +62,7 @@
                         </div>
                         <button type="submit" class="btn btn-default">Thêm</button>
                         <button type="reset" class="btn btn-default">Làm mới</button>
-                        <form>
+                        </form>
                 </div>
             </div>
             <!-- /.row -->
@@ -83,9 +83,19 @@
             });
         });
 
-        $("button[type='reset']").on("click", function() {
-            console.log(123);
-            $("input[name=Ten]").attr("value", "");
-        });
+        // $("button[type='reset']").on("click", function() {
+        //     console.log(123);
+        //     $("input[name=Ten]").attr("value", "");
+        // });
+
+        let form = document.myForm;
+
+        form.onreset = function() {
+            let val = confirm("Ban co muon reset hay khong");
+            if (val === true) {
+                $(".password").attr("disabled", "");
+            }
+            return val;
+        }
     </script>
 @endsection

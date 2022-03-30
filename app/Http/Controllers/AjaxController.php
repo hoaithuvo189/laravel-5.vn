@@ -27,6 +27,10 @@ class AjaxController extends Controller
         $user->quyen = ($user->quyen === 1) ? 0 : 1;
         $user->save();
 //        return response()->json(['success' => 'Quyen đã được thay đổi thành công']);
-        return response()->json(['id' => $request->id, "quyen" => $user->quyen, "success" => "Quyen đã được thay đổi thành công"]);
+        return response()->json([
+            'id' => $request->id,
+            "quyen" => $user->quyen,
+            "success" => "Quyen đã được thay đổi thành công"
+        ]);
     }
 }

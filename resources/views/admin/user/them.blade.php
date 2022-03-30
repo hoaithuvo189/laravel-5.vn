@@ -23,36 +23,36 @@
                             {{ session("thongbao") }}
                         </div>
                     @endif
-                    <form action="/admin/user/them" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label>Tên</label>
-                            <input class="form-control" name="Name" placeholder="Điền vào tên" />
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input class="form-control" name="Email" placeholder="Điền vào email" />
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" name="Password" placeholder="Điền vào password" />
-                        </div>
-                        <div class="form-group">
-                            <label>Nhập lại Password</label>
-                            <input type="password" class="form-control" name="PasswordAgain" placeholder="Nhập lại password" />
-                        </div>
-                        <div class="form-group">
-                            <label>Quyền</label>
-                            <label class="radio-inline">
-                                <input name="Quyen" value="1" checked="" type="radio">Admin
-                            </label>
-                            <label class="radio-inline">
-                                <input name="Quyen" value="0" type="radio">Thường
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-default">Thêm</button>
-                        <button type="reset" class="btn btn-default">Làm mới</button>
-                        <form>
+                        <form name="myForm" action="/admin/user/them" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label>Tên</label>
+                                <input class="form-control" name="Name" placeholder="Điền vào tên" />
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" name="Email" placeholder="Điền vào email" />
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" name="Password" placeholder="Điền vào password" />
+                            </div>
+                            <div class="form-group">
+                                <label>Nhập lại Password</label>
+                                <input type="password" class="form-control" name="PasswordAgain" placeholder="Nhập lại password" />
+                            </div>
+                            <div class="form-group">
+                                <label>Quyền</label>
+                                <label class="radio-inline">
+                                    <input name="Quyen" value="1" checked="" type="radio">Admin
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="Quyen" value="0" type="radio">Thường
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-default">Thêm</button>
+                            <button type="reset" class="btn btn-default">Làm mới</button>
+                        </form>
                 </div>
             </div>
             <!-- /.row -->
@@ -63,9 +63,14 @@
 
 @section("script")
     <script>
-        $("button[type='reset']").on("click", function() {
-            $("input[name=Ten], input[name=NoiDung], input[name=link]").attr("value", "");
-            $("input[type=file]").val("");
-        });
+{{--        $("button[type='reset']").on("click", function() {--}}
+{{--            $("input[name=Ten], input[name=NoiDung], input[name=link]").attr("value", "");--}}
+{{--            $("input[type=file]").val("");--}}
+{{--        });--}}
+
+        let form = document.myForm;
+        form.onreset = function() {
+            return confirm("Ban co muon reset hay khong");
+        }
     </script>
 @endsection

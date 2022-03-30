@@ -28,7 +28,7 @@
                         </div>
                     @endif
 
-                    <form action="/admin/theloai/sua/{{ $theloai->id }}" method="POST">
+                    <form name="myForm" action="/admin/theloai/sua/{{ $theloai->id }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Tên thể loại</label>
@@ -47,9 +47,14 @@
 
 @section("script")
     <script>
-        $("button[type='reset']").on("click", function() {
-            console.log(123);
-            $("input[name=Ten]").attr("value", "");
-        });
+        // $("button[type='reset']").on("click", function() {
+        //     $("input[name=Ten], input[name=NoiDung], input[name=link]").attr("value", "");
+        //     $("input[type=file]").val("");
+        // });
+
+        let form = document.myForm;
+        form.onreset = function() {
+            return confirm("Ban co muon reset hay khong");
+        }
     </script>
 @endsection

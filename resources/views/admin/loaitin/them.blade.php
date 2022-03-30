@@ -24,7 +24,7 @@
                         </div>
                     @endif
 
-                    <form action="/admin/loaitin/them" method="POST">
+                    <form name="myForm" action="/admin/loaitin/them" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Thể loại</label>
@@ -47,4 +47,13 @@
         </div>
         <!-- /.container-fluid -->
     </div>
+@endsection
+
+@section("script")
+    <script>
+        let form = document.myForm;
+        form.onreset = function() {
+            return confirm("Ban co muon reset hay khong");
+        }
+    </script>
 @endsection

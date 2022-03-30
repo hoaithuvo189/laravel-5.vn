@@ -23,7 +23,7 @@
                             {{ session("thongbao") }}
                         </div>
                     @endif
-                    <form action="/admin/tintuc/them" method="POST" enctype="multipart/form-data">
+                    <form name="myForm" action="/admin/tintuc/them" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Thể loại</label>
@@ -88,5 +88,23 @@
                 });
             });
         });
+
+        // Reset form
+        // $("button[type='reset']").on("click", function() {
+        //     $("input[name=Ten], input[name=NoiDung], input[name=link]").attr("value", "");
+        //     $("input[type=file]").val("");
+        // });
+
+        let form = document.myForm;
+        form.onreset = function() {
+            let val = confirm("Ban co muon reset hay khong");
+
+            if (val === true) {
+                CKEDITOR.instances.ckeditorTomTat.setData('');
+                CKEDITOR.instances.ckeditorNoiDung.setData('');
+            }
+
+            return val;
+        }
     </script>
 @endsection
