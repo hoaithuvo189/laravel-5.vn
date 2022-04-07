@@ -9,6 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
+    // Khai báo lại tên bảng dưới database, mặc định sẽ là tên class + s --> comments
     protected $table = "comment";
 
     // Mối quan hệ
