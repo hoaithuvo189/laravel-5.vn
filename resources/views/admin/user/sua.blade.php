@@ -56,7 +56,7 @@
                                        @if($user->quyen === 0)
                                        {{ "checked" }}
                                        @endif
-                                       type="radio">Thường
+                                       type="radio">Member
                             </label>
 
                         </div>

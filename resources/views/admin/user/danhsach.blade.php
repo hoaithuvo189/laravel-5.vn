@@ -37,7 +37,7 @@
                                         type="button"
                                         data-user-id="{{ $u->id }}">
 
-                                        {{ $u->quyen === 1 ? "Admin" : "Thường" }}
+                                        {{ $u->quyen === 1 ? "Admin" : "User" }}
                                 </button>
                             </td>
 
@@ -86,7 +86,7 @@
                 } else {
                     classRemove = "btn-primary";
                     classAdd = "btn-info";
-                    content = "Thường";
+                    content = "User";
                 }
 
                 $(classQuyen).removeClass(classRemove).addClass(classAdd);

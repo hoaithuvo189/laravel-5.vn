@@ -47,7 +47,7 @@
                                     <input name="Quyen" value="1" checked="" type="radio">Admin
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="Quyen" value="0" type="radio">Thường
+                                    <input name="Quyen" value="0" type="radio">Member
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>

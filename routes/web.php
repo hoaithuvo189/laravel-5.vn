@@ -117,4 +117,5 @@ Route::post("nguoidung", [PagesController::class, "postNguoidung"]);
 
 Route::post("comment/{id}", [CommentController::class, "postComment"]);
 
-Route::post("timkiem", [PagesController::class, "timkiem"]);
+//Route::post("timkiem", [PagesController::class, "timkiem"]);
+Route::match(['get', 'post'], 'timkiem',[PagesController::class, "timkiem"]);

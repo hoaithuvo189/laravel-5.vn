@@ -24,7 +24,8 @@
                         @if(count($tl->loaitin) > 0)
                             <div class="row-item row">
                                 <h3>
-                                    <a href="category.html">{{ $tl->Ten }}</a> |
+                                    <p>{{ $tl->Ten }}</p>
+
                                     @foreach($tl->loaitin as $lt)
                                         <small><a href="/loaitin/{{ $lt->id }}/{{ $lt->TenKhongDau }}.html"><i>{{ $lt->Ten }}</i></a>/</small>
                                     @endforeach
